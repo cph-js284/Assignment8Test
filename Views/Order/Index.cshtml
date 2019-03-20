@@ -1,0 +1,16 @@
+@model IEnumerable<Order>
+
+<h2>Orders menu</h2><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <a asp-controller="Order" asp-action="PlaceOrder" class="btn btn-primary">Place new order</a>
+        </div>
+
+        <div class="col-sm-2">
+            <a asp-controller="Order" asp-action="ShowAllOrders" class="btn btn-primary">Show all orders</a>
+        </div>
+    </div>
+
+</div>

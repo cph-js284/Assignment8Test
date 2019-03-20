@@ -1,0 +1,32 @@
+@model IEnumerable<Order>
+
+<h3>
+    All orders in system
+</h3>
+
+<div class="container">
+    @foreach (var order in Model)
+    {
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="orderdiv Bmargin">
+                    <ul>
+                        <li>ID: @order.Id</li>
+                        <li>Timestamp: @order.TimeStamp</li>
+                        <li>Customer name: @order.CustomerName</li>
+                        <li>Pizza(s) ordered</li>
+                        @foreach (var pizzas in order.oItems)
+                        {
+                            <ul>
+                                <li><span>@pizzas.Text</span> - <span>@pizzas.Price</span></li>
+                            </ul>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <a asp-action="RemoveOrder" asp-route-id="@order.Id" class="btn btn-danger">Remove order</a>
+            </div>
+        </div>        
+    }
+</div>

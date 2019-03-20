@@ -1,0 +1,42 @@
+@model FormOrder
+
+<h3>Place new order</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            
+            <form method="post">
+                <div class="form-group">
+                    <input asp-for="OrderCSV" type="hidden" id="ordercsv_id" class="form-control Bmargin" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="CustomerName" class="form-control Bmargin" id="customername_id" placeholder="Enter name of customer" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+                <div>
+                    <select id="pizzaselect_id" class="form-control Bmargin">
+                            <option id="empty"> - Select pizza - </option>
+
+                        @foreach (var item in (List<Item>)ViewBag.itemlist)
+                        {
+                            <option id="@item._HId">@item.Text</option>
+                        }
+                    </select>
+                    <span asp-validation-for="OrderCSV" class="text-danger"></span>
+                </div>
+                <div>
+                    <a class="btn btn-primary form-control Bmargin" id="addpizzabutton_id" onclick="AddPizza()">Add pizza to current order</a>
+                </div>
+                <div>
+                    <input type="submit" value="Submit order" id="submitorderbutton_id" class="btn btn-secondary form-control Bmargin"/>
+                </div>
+            </form>
+
+        </div>
+        
+        <div class="col-sm-6" style="background-color:#d0d0d0;">
+            <p>Current order:</p>
+            <p id="currentorders_id"></p>
+        </div>
+    </div>
+</div>
