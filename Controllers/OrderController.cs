@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -27,6 +28,9 @@ namespace mariospizzamongo
         }
 
         public IActionResult Index(){
+            
+            ViewBag.orderAcc = TempData["msg"];
+    
             return View();
         }
 
@@ -61,6 +65,8 @@ namespace mariospizzamongo
 
             _ctx.AddOrder(order);
 
+            TempData["msg"]="New order placed in system for customer : " + order.CustomerName;
+            
             return RedirectToAction("Index");
         }
 

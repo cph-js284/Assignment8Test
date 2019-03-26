@@ -1,15 +1,23 @@
 @model IEnumerable<Order>
 
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div>
+    <h3 style="color:green;" id="orderaccepted_id">@ViewBag.orderAcc</h1>
+</div>
+
 <h2>Orders menu</h2><br>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
-            <a asp-controller="Order" asp-action="PlaceOrder" class="btn btn-primary">Place new order</a>
+            <a asp-controller="Order" id="placeorderbutton_id" asp-action="PlaceOrder" class="btn btn-primary">Place new order</a>
         </div>
 
         <div class="col-sm-2">
-            <a asp-controller="Order" asp-action="ShowAllOrders" class="btn btn-primary">Show all orders</a>
+            <a asp-controller="Order" id="showallordersbutton_id" asp-action="ShowAllOrders" class="btn btn-primary">Show all orders</a>
         </div>
     </div>
 

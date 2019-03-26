@@ -1,9 +1,14 @@
 @model IEnumerable<Order>
 
+@{
+    ViewData["Title"] = "Show orders";
+    int OrderCounter = 1;
+}
+
 <h3>
     All orders in system
 </h3>
-
+<p id="systeminfo_id">Currently there are <span id="ordercount_id">@Model.Count()</span> order(s) in the system</p>
 <div class="container">
     @foreach (var order in Model)
     {
@@ -25,7 +30,10 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <a asp-action="RemoveOrder" asp-route-id="@order.Id" class="btn btn-danger">Remove order</a>
+                <a asp-action="RemoveOrder" id="@string.Format("removebutton_id{0}", OrderCounter)" asp-route-id="@order.Id" class="btn btn-danger">Remove order</a>
+                @{
+                    OrderCounter++;
+                }
             </div>
         </div>        
     }
