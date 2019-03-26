@@ -22,4 +22,4 @@ sudo docker run -d --rm -p 8080:80 --link dbms:mongo marioapp
 *This takes care of the setup, now you can open a browser and hit http://localhost:8080 and you will see the webinterface for Marios pizza*
 
 # Running the tests
-Setup the Selenium tests by following the instructions here [Setup Selenium tests](https://github.com/cph-js284/Assignment8TestSeleniumTests/blob/master/README.md)
+Setup the Selenium tests by following the instructions here [Setup Selenium tests](https://github.com/cph-js284/Assignment8TestSeleniumTests)
